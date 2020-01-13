@@ -1,0 +1,106 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+        <meta http-equiv="X-UA-Compatible" content="ie=edge"> 
+        <title>Matching Game-Mashael alrouqi</title>
+        <meta name="description" content="">
+        <link rel="stylesheet prefetch" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.1/css/font-awesome.min.css">
+        <link rel="stylesheet" href="css/app.css">
+    </head>
+
+<body>
+    <div class="container">
+        <header>
+            <h1>Try To Matching the icons </h1>
+        </header>
+        
+        <section class="score-panel">
+            <button class="btn restart">
+                <i class="fa fa-repeat"></i>
+            </button>
+            <div class="current-rate">
+                <div class="counter"></div>
+                <span>Move(s) </span><span class="moves">0</span>
+            </div>
+            <ul class="star-rating">
+                <li><i class="fa fa-star"></i></li>
+                <li><i class="fa fa-star"></i></li>
+                <li><i class="fa fa-star"></i></li>
+            </ul>
+            <div class="counter">
+                <span>Time <i class="fa fa-clock-o" title="Time"></i>
+                </span><span class="displayTime">00:00</span>
+            </div>
+        </section>
+        <!--card icon-->
+        <ul class="deck" id="card-deck">
+            <li class="card">
+                <i class="fa fa-spinner"></i>
+            </li>
+            <li class="card">
+                <i class="fa fa-star-o"></i>
+            </li>
+            <li class="card">
+                <i class="fa fa-sun-o"></i>
+            </li>
+            <li class="card">
+                <i class="fa fa-tint"></i>
+            </li>
+            <li class="card">
+                <i class="fa fa-umbrella"></i>
+            </li>
+            <li class="card">
+                <i class="fa fa-sun-o"></i>
+            </li>
+            <li class="card">
+                <i class="fa fa-star-half-o"></i>
+            </li>
+            <li class="card">
+                <i class="fa fa-tree"></i>
+            </li>
+            <li class="card">
+                <i class="fa fa-spinner"></i>
+            </li>
+            <li class="card">
+                <i class="fa fa-fire"></i>
+            </li>
+            <li class="card">
+                <i class="fa fa-star-half-o"></i>
+            </li>
+            <li class="card">
+                <i class="fa fa-fire"></i>
+            </li>
+            <li class="card">
+                <i class="fa fa-tint"></i>
+            </li>
+            <li class="card">
+                <i class="fa fa-tree"></i>
+            </li>
+            <li class="card">
+                <i class="fa fa-star-o"></i>
+            </li>
+            <li class="card">
+                <i class="fa fa-umbrella"></i>
+            </li>
+        </ul>
+         <!--pop up shown after the game-->
+         <section class="pop-up hide">
+             <div class="result">
+                 <h2><span class="pop-up-header">Congratulations!</span></h2>
+                 <p>Your moves are : <span id="fin-moves">0</span> .. WooooW</p>
+                 <p>Your time is <span id="fin-time">00.00</span></p>
+                 <p class="fin-stars">
+                     <i class="fa fa-star"></i>
+                     <i class="fa fa-star"></i>
+                     <i class="fa fa-star"></i>
+                    </p>
+              </div>
+         </section>
+
+        </div>
+        <script src="js/app.js"></script>
+        
+    </body>
+</html>
