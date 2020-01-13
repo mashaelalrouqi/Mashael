@@ -1,0 +1,305 @@
+html {
+    box-sizing: border-box;
+}
+
+*,
+*::before,
+*::after {
+    box-sizing: inherit;
+}
+
+html,
+body {
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    color: rgba(17, 48, 70, 0.5);
+    text-align: center;
+}
+
+body {
+    /* Background image form https://mdbootstrap.com/docs/vue/css/background-image/ */
+    background-image: url("https://mdbootstrap.com/img/Photos/Horizontal/Nature/full page/img(11).jpg");
+    height: 50%;
+    background-repeat: no-repeat;
+    background-size: auto;
+    font-family: cursive;
+    font-size: 1em; 
+}
+
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+h1 {
+    font-family: cursive;
+    font-style: bold;
+    font-weight: 300;
+}
+
+
+/*Styles for the Score Panel*/
+
+.score-panel {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.score-panel {
+    text-align: left;
+    width: 456px;
+    margin-bottom: 10px;
+    background: linear-gradient(160deg, rgba(194, 210, 223, 0.8) 0%, rgba(243, 244, 248, 0.8) 100%);
+    border-radius: 25px;
+    padding: 10px;
+}
+
+.score-panel .star-rating {
+    margin: 0;
+    padding: 0;
+    display: inline-block;
+    margin: 0 5px 0 0;
+}
+
+.score-panel .star-rating li {
+    list-style: none;
+    display: inline-block;
+}
+
+.score-panel .restart {
+    float: right;
+    cursor: pointer;
+    color: #fff;
+    background-color: rgba(17, 48, 70, 0.5);
+    box-sizing: border-box;
+    outline: none;
+
+}
+
+.timer {
+    display: inline-block;
+    margin: 0 1rem;
+}
+
+
+.btn {
+    width: 85px;
+    height: 45px;
+    border-radius: 30px;
+    font-family: 'Maven Pro', sans-serif;
+    font-weight: bold;
+    color: white;
+    background: rgba(161, 180, 198, 0.774);
+    border: 2px solid rgb(209, 225, 231);
+    box-sizing: border-box;
+    outline: none;
+    font-size: 0.83em;
+} 
+
+.counter span {
+    display: inline-block;
+    width: 100%;
+}
+
+/*Styles for the cards*/
+
+.deck {
+    width: 42.5em; 
+    min-height: 42.5em; 
+    background: linear-gradient(160deg, rgba(243, 244, 248, 0.8) 0%, rgba(17, 48, 70, 0.5) 100%);
+    padding: 2em;  
+    border-radius: 10px;
+    box-shadow: 12px 15px 20px 0 rgba(46, 61, 73, 0.5);
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    align-items: center;
+    margin: 0 0 3em;
+}
+
+.deck .card {
+    height: 125px; 
+    width: 125px;
+    margin: 0.2rem 0.2rem;
+    background: rgba(17, 48, 70, 0.726);
+    font-size: 0;
+    color: #ffffff;
+    border-radius: 10px;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 5px 2px 20px 0 rgba(46, 61, 73, 0.5);
+}
+
+.deck .card.open {
+    transform: rotateY(0);
+    background: #7d9db2; 
+    cursor: default;
+    animation-name: flipInY;
+    -webkit-backface-visibility: visible !important;
+    backface-visibility: visible !important;
+    animation-duration: .75s;
+}
+
+.deck .card.show {
+    font-size: 33px;
+}
+
+.deck .card.match {
+    cursor: default;
+    background: #397c54;
+    font-size: 33px;
+    animation-name: rubberBand;
+    -webkit-backface-visibility: visible !important;
+    backface-visibility: visible !important;
+    animation-duration: .75s;
+
+}
+
+.deck .card.unMatch {
+    animation-name: pulse;
+    -webkit-backface-visibility: visible !important;
+    backface-visibility: visible !important;
+    animation-duration: .75s;
+    cursor: default;
+    background: #ff6666cc;
+    font-size: 33px;
+}
+
+
+.back {
+    background: #2e3d49;
+    position: absolute;
+    left: 0;
+    top: 0;
+    padding: 0;
+    border: none;
+    outline: none;
+}
+
+.check {
+    transform: rotateY(180deg);
+}
+
+/*Styles for the pop up section*/
+
+.pop-up {
+    z-index: 1000;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    display: -webkit-box;
+    -webkit-box-pack: center;
+    -webkit-box-align: center;
+    justify-content: center;
+    align-items: center;
+}
+
+.hidden{
+    visibility: hidden;
+}
+
+.result {
+    position: center;
+    top: 22.62em;
+    left: 43.75em;
+    width: 500px;
+    max-width: 90vw;
+    background-color: #9fbac9f8;
+    box-shadow: 0 -1px 0 0.1em #ffffffc5, 0 0.2em 0.2em 0 rgba(46, 61, 73, 0.493) ;
+    border-radius: 30px;
+}
+
+.fa-star {
+    color: #ffff99;
+}
+
+.hide {
+    display: none;
+} 
+
+
+/* animations */
+
+@keyframes flipInY {
+    from {
+        transform: perspective(400px) rotate3d(0, 1, 0, 90deg);
+        animation-timing-function: ease-in;
+        opacity: 0;
+    }
+
+    40% {
+        transform: perspective(400px) rotate3d(0, 1, 0, -20deg);
+        animation-timing-function: ease-in;
+    }
+
+    60% {
+        transform: perspective(400px) rotate3d(0, 1, 0, 10deg);
+        opacity: 1;
+    }
+
+    80% {
+        transform: perspective(400px) rotate3d(0, 1, 0, -5deg);
+    }
+
+    to {
+        transform: perspective(400px);
+    }
+}
+
+@keyframes rubberBand {
+    from {
+        transform: scale3d(1, 1, 1);
+    }
+
+    30% {
+        transform: scale3d(1.25, 0.75, 1);
+    }
+
+    40% {
+        transform: scale3d(0.75, 1.25, 1);
+    }
+
+    50% {
+        transform: scale3d(1.15, 0.85, 1);
+    }
+
+    65% {
+        transform: scale3d(.95, 1.05, 1);
+    }
+
+    75% {
+        transform: scale3d(1.05, .95, 1);
+    }
+
+    to {
+        transform: scale3d(1, 1, 1);
+    }
+}
+
+@keyframes pulse {
+    from {
+        transform: scale3d(1, 1, 1);
+    }
+
+    50% {
+        transform: scale3d(1.2, 1.2, 1.2);
+    }
+
+    to {
+        transform: scale3d(1, 1, 1);
+    }
+}
+
+@media (max-width: 600px) {
+    .score-panel {
+        flex-direction: column;
+        align-items: center;
+    }
+}
